@@ -13,7 +13,7 @@ jobs:
       matrix:
         architecture: [amd64, arm64]
     #env:
-      #IMAGE_NAME: ghcr.io/${{ github.repository_owner }}/gamebrary:${{ github.sha }}
+      #IMAGE_NAME: ghcr.io/${{ github.repository_owner }}/blawar-nut:${{ github.sha }}
 
     steps:
       - name: Check out code
@@ -60,7 +60,7 @@ jobs:
 
       - name: Scan Docker Image with Trivy
         run: |
-          trivy image --exit-code 1 --severity HIGH,CRITICAL ghcr.io/${{ github.repository_owner }}/gamebrary:${{ github.sha }}
+          trivy image --exit-code 1 --severity HIGH,CRITICAL ghcr.io/${{ github.repository_owner }}/blawar-nut:${{ github.sha }}
 
       - name: Upload Trivy Scan Report (Optional)
         if: always()  # Ensures report uploads even if scan fails
